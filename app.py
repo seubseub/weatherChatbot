@@ -21,7 +21,7 @@ def hello_world():
 def Keyboard():
     dataSend = {
         "type": "buttons",
-        "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
+        "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
     }
     return jsonify(dataSend)
 
@@ -40,10 +40,10 @@ def Message():
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
                 }
             }
-        elif content == u"결과에 만족하시나요?":
+        elif content == u"결과에 만족하시나요":
             dataSend = {
                 "keyboard": {
                     "type": "buttons",
@@ -58,7 +58,7 @@ def Message():
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
                 }
             }
 
@@ -69,7 +69,7 @@ def Message():
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
                 }
             }
         elif content == u"예보에 비해 추웠다":
@@ -79,7 +79,7 @@ def Message():
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
                 }
             }
         return jsonify(dataSend)
