@@ -21,7 +21,7 @@ def hello_world():
 def Keyboard():
     dataSend = {
         "type": "buttons",
-        "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+        "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요"]
     }
     return jsonify(dataSend)
 
@@ -46,6 +46,9 @@ def Message():
 
         elif content == u"결과에 만족하시나요":
             dataSend = {
+                "message": {
+                    "text": "투표해주세요"
+                },
                 "keyboard": {
                     "type": "buttons",
                     "buttons": ["예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
