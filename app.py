@@ -12,7 +12,6 @@ w = obs.get_weather()
 
 result = str(w.get_temperature(unit='celsius')['temp'])
 
-
 @app.route('/')
 def hello_world():
     return 'Hello World!'
@@ -22,7 +21,7 @@ def hello_world():
 def Keyboard():
     dataSend = {
         "type": "buttons",
-        "buttons": ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+        "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
     }
     return jsonify(dataSend)
 
@@ -41,38 +40,46 @@ def Message():
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
                 }
             }
+        elif content == u"결과에 만족하시나요?":
+            dataSend = {
+                "keyboard": {
+                    "type": "buttons",
+                    "buttons": ["예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+                }
+            }
+
         elif content == u"예보에 비해 더웠다":
             dataSend = {
                 "message": {
-                    "text": "귀하의 의견 감사합니다.1"
+                    "text": "귀하의 더웠다는 의견 감사합니다."
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
                 }
             }
 
         elif content == u"예보가 적절했다":
             dataSend = {
                 "message": {
-                    "text": "귀하의 의견 감사합니다.2"
+                    "text": "귀하의 적절했다는 의견 감사합니다."
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
                 }
             }
         elif content == u"예보에 비해 추웠다":
             dataSend = {
                 "message": {
-                    "text": "귀하의 의견 감사합니다.3"
+                    "text": "귀하의 추웠다는 의견 감사합니다."
                 },
                 "keyboard": {
                     "type": "buttons",
-                    "buttons": ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
+                    "buttons": ["현재 날씨를 보여줘", "결과에 만족하시나요?"]
                 }
             }
         return jsonify(dataSend)
