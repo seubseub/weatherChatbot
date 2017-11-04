@@ -22,7 +22,7 @@ def Keyboard():
 
 @app.route('/message', methods=['POST'])
 def Message():
-    dataReceive = request.get_ison()
+    dataReceive = request.get_json()
     content = dataReceive['content']
     if content == u"현재 날씨를 보여줘":
         API_KEY = 'e4e96bc8ffc8af544c30f6c787eaa804'
