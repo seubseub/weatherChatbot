@@ -16,7 +16,7 @@ def hello_world():
 def Keyboard():
     dataSend = {
         "type" : "buttons",
-        "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다."]
+        "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
     }
     return jsonify(dataSend)
 
@@ -31,11 +31,11 @@ def Message():
         w = obs.get_weather()
         dataSend = {
             "message": {
-                "text": "현재 온도는 : " + w.get_temperature(unit='celsius')['temp'] + "입니다"
+                "text": "현재 온도는 : " + str(w.get_temperature(unit='celsius')['temp']) + "도 입니다"
             },
             "keyboard": {
                 "type": "buttons",
-                "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다."]
+                "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
             }
         }
     elif content == u"예보에 비해 더웠다":
@@ -45,18 +45,18 @@ def Message():
             },
             "keyboard": {
             "type": "buttons",
-            "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다."]
+            "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
             }
         }
 
-    elif content == u"예보가 적절하다":
+    elif content == u"예보가 적절했다":
         dataSend = {
             "message": {
                 "text": "귀하의 의견 감사합니다.2"
             },
             "keyboard": {
-                "type": "buttons",
-                "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다."]
+             "type": "buttons",
+             "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
             }
         }
     elif content == u"예보에 비해 추웠다":
@@ -65,8 +65,8 @@ def Message():
                 "text": "귀하의 의견 감사합니다.3"
             },
             "keyboard": {
-                "type": "buttons",
-                "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다."]
+            "type": "buttons",
+            "buttons" : ["현재 날씨를 보여줘", "예보에 비해 더웠다", "예보가 적절했다", "예보에 비해 추웠다"]
             }
         }
     return jsonify(dataSend)
